@@ -3,6 +3,7 @@
     <div class="list-group">
       <a
         [routerLink]="['/servers', server.id]"
+        [queryParams]="{allowEdit: server.id === 3 ? '1' : '0'}"
         class="list-group-item"
         *ngFor="let server of servers">
         {{ server.name }}
@@ -10,10 +11,6 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
-    <button (click)="reloadPage()" class="btn btn-primary">Reload Page</button>
-    <app-edit-server></app-edit-server>
-    <hr>
-    <!--<app-server></app-server>-->
-  </div>
+    <router-outlet></router-outlet>
 </div>
 
